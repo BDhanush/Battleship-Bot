@@ -56,52 +56,6 @@ class BattleShip:
 
         x=0
         y=0
-        
-        if(self.info==3):                                               #hawkeye
-            row_sum=[0 for i in range(10)]
-            column_sum=[0 for i in range(10)]
-            for i in range (0,10):
-                for j in range (0,10):
-                    row_sum[i]+=probability[i][j]
-                    column_sum[j]+=probability[j][i]
-            
-            row_or_column=0
-            row_column_no=0
-            max_sum=0
-            for i in range (0,10):
-                if(row_sum[i]>max_sum):
-                    row_column_no=i
-                    row_or_column=0
-                if(column_sum[i]>max_sum):
-                    row_or_column=1
-                    row_column_no=i
-
-                max_sum=max(row_sum[i],max_sum)
-                max_sum=max(column_sum[i],max_sum)
-            
-            max_sum=0
-            row_column_no2=0
-            if(row_or_column):
-                y=row_column_no
-                for i in range(0,10):
-                    row_sum[i]-=probability[i][row_column_no]
-                    if(row_sum[i]>max_sum):
-                        row_column_no2=i
-                        max_sum=row_sum[i]
-                x=row_column_no2
-            else:
-                x=row_column_no
-                for i in range (0,10):
-                    column_sum[i]-=probability[row_column_no][i]
-                    if(column_sum[i]>max_sum):
-                        row_column_no2=i
-                        max_sum=column_sum[i]
-                y=row_column_no2
-            
-            self.cx=x
-            self.cy=y
-            return (x,y)
-
         maxi1=0
 
         for i in range (0,10):
